@@ -20,7 +20,6 @@ weatherForm.addEventListener("submit", async (event) => {
     }
 });
 
-// Function to get city coordinates using Open-Meteo's geocoding API
 async function getCityCoordinates(city) {
     const geoApiUrl = `https://geocoding-api.open-meteo.com/v1/search?name=${city}&count=1`;
 
@@ -52,7 +51,6 @@ async function getWeatherData(latitude, longitude) {
     return await response.json();
 }
 
-// Function to display weather data
 function displayWeatherInfo(city, data) {
     const { temperature, windspeed, weathercode } = data.current_weather;
 
@@ -80,7 +78,6 @@ function displayWeatherInfo(city, data) {
     card.appendChild(descDisplay);
 }
 
-// Function to display error message
 function displayError(message) {
     card.textContent = "";
     card.style.display = "flex";
@@ -92,7 +89,6 @@ function displayError(message) {
     card.appendChild(errorDisplay);
 }
 
-// Function to get weather description based on weather code
 function getWeatherDescription(code) {
     const weatherCodes = {
         0: "Clear Sky ☀️",
